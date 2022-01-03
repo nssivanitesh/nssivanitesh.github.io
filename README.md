@@ -1,2 +1,4 @@
-# nssivanitesh.github.io
-Github pages for Sivakumar Kumar
+# Sivakumar Kumar
+Software Developer
+nssivanitesh@gmail.com
+🇮🇳 | 🇸🇪
