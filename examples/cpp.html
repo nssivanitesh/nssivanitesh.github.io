@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPP | Developer notes</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="p-2 h-screen">
+        <div class="flex gap-4 h-full bg-gradient-to-b from-gray-50 to-gray-200">
+            <div class="w-full lg:w-1/6 p-4 h-full h-full bg-gray-100">
+                <div class="flex flex-col">
+                    <div class="rounded-lg p-4">
+                        <img class="object-cover w-36 h-36 rounded-full" src="siva_photo.jpg" />
+                    </div>
+                    <a href="https://nssivanitesh.github.io/" class="text-md text-center p-2 rounded-lg">C++</a>
+                    <a href="#one" class="text-md p-4 hover:bg-gray-200 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="information-circle-outline" class="text-lg"></ion-icon>
+                            <div>Data types</div>
+                        </div>
+                    </a>
+                    <a href="#two" class="text-md p-4 hover:bg-gray-200 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="flash-outline" class="text-lg"></ion-icon>
+                            <div>Control flow</div>
+                        </div>
+                    </a>
+                    <a href="#three" class="text-md p-4 hover:bg-gray-200 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="analytics-outline" class="text-lg"></ion-icon>
+                            <div>Classes</div>
+                        </div>
+                    </a>
+                    <a href="#four" class="text-md p-4 hover:bg-gray-200 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="book-outline" class="text-lg"></ion-icon>
+                            <div>Concurrency</div>
+                        </div>
+                    </a>
+                    <a href="#five" class="text-md p-4 hover:bg-gray-200 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="infinite-outline" class="text-lg"></ion-icon>
+                            <div>Data structures & Algorithms</div>
+                        </div>
+                    </a>
+                    <a href="#six" class="text-md p-4 hover:bg-gray-200 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="at-outline" class="text-lg"></ion-icon>
+                            <div>References</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="w-full lg:w-5/6 p-4 h-full overflow-y-scroll">
+                <div class="p-4">
+                    <h3 id="one" class="font-bold text-xl p-2 sticky top-0 bg-gray-100 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="information-circle-outline" class="text-lg"></ion-icon>
+                            <div>Data types</div>
+                        </div>
+                    </h3>
+                    <hr />
+                    <p class="p-4 m-4 rounded-lg bg-gray-200">Let's write a program to print hello, world!</p>
+                    <div class="flex">
+                        <pre class="flex-1 bg-gray-800 text-white p-4 rounded-lg">
+// Print, Hello, world to console!
+#include &ltiostream&gt
+
+int main()
+{
+    std::cout << "Hello, world!";
+    return 0;
+}
+                        </pre>
+                    </div>
+                    <br />
+                    <p class="p-4 m-4 rounded-lg bg-gray-200">What's the fun in a program that prints the same output all the time? Let's make it get an input and print it.</p>
+                    <div class="flex">
+                        <pre class="flex-1 bg-gray-800 text-white p-4 rounded-lg">
+// Program that gets a name, and prints it to the console
+#include &ltiostream&gt
+#include &ltstring&gt
+
+int main()
+{
+  std::string name;
+  std::cout << "What is your name? ";
+  getline (std::cin, name);
+  std::cout << "Hello, " << name << "!\n";
+  return 0;
+}
+                        </pre>
+                    </div>
+                    <br />
+                    <p class="p-4 m-4 rounded-lg bg-gray-200">Let's get to know the data types better!</p>
+                    <div class="flex">
+                        <pre class="flex-1 bg-gray-800 text-white p-4 rounded-lg">
+                            <code>
+// Program that gets a name, and prints it to the console
+#include < iostream >
+#include < string >
+#include < limits >
+
+using namespace std;
+int main()
+{
+    cout << "Size of char : " << sizeof(char) << " byte, with min: " << numeric_limits<char>::min() << " and max: " << numeric_limits<char>::max() << endl;
+    cout << "Size of int : " << sizeof(int) << " byte, with min: " << numeric_limits<int>::min() << " and max: " << numeric_limits<int>::max() << endl;
+    cout << "Size of short int : " << sizeof(short int) << " byte, with min: " << numeric_limits<short int>::min() << " and max: " << numeric_limits<short int>::max() << endl;
+    cout << "Size of long int : " << sizeof(long int) << " byte, with min: " << numeric_limits<long int>::min() << " and max: " << numeric_limits<long int>::max() << endl;
+    cout << "Size of signed long int : " << sizeof(signed long int) << " byte, with min: " << numeric_limits<signed long int>::min() << " and max: " << numeric_limits<signed long int>::max() << endl;
+    cout << "Size of unsigned long int : " << sizeof(unsigned long int) << " byte, with min: " << numeric_limits<unsigned long int>::min() << " and max: " << numeric_limits<unsigned long int>::max() << endl;
+    cout << "Size of float : " << sizeof(float) << " byte, with min: " << numeric_limits<float>::min() << " and max: " << numeric_limits<float>::max() << endl;
+    cout << "Size of double : " << sizeof(double) << " byte, with min: " << numeric_limits<double>::min() << " and max: " << numeric_limits<double>::max() << endl;
+    cout << "Size of wchar_t : " << sizeof(wchar_t) << " bytes" << endl;
+    return 0;
+}
+                        </code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 id="two" class="font-bold text-xl p-2 sticky top-0 bg-gray-100 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="flash-outline" class="text-lg"></ion-icon>
+                            <div>Control flow</div>
+                        </div>
+                    </h3>
+                    
+                </div>
+                <div class="p-4">
+                    <h3 id="three" class="font-bold text-xl p-2 sticky top-0 bg-gray-100 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="analytics-outline" class="text-lg"></ion-icon>
+                            <div>Classes</div>
+                        </div>
+                    </h3>
+                    <hr />
+                </div>
+                <div class="p-4">
+                    <h3 id="four" class="font-bold text-xl p-2 sticky top-0 bg-gray-100 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="book-outline" class="text-lg"></ion-icon>
+                            <div>Concurrency</div>
+                        </div>
+                    </h3>
+                    <hr />
+                </div>
+                <div class="p-4">
+                    <h3 id="five" class="font-bold text-xl p-2 sticky top-0 bg-gray-100 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="infinite-outline" class="text-lg"></ion-icon>
+                            <div>Data structures & algorithms</div>
+                        </div>
+                    </h3>
+                    <hr />
+                </div>
+                <div class="p-4">
+                    <h3 id="six" class="font-bold text-xl p-2 sticky top-0 bg-gray-100 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="at-outline" class="text-lg"></ion-icon>
+                            <div>References</div>
+                        </div>
+                    </h3>
+                    <hr />
+                </div>
+                <div class="p-8">
+                    <div class="flex gap-8">
+                        <div class="w-full font-italic p-8 rounded-lg text-center">
+                            That's all folks!
+                            <h6 class="p-2">This site is powered by <a href="https://tailwindcss.com/">Tailwind CSS</a></h6>
+                            <h6 class="p-2">This site's icons are from <a href="https://ionic.io/ionicons">Ionic Icons</a></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
