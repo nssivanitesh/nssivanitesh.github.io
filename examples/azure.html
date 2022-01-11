@@ -21,7 +21,7 @@
                             <div>Back</div>
                         </div>
                     </a>
-                    <p class="text-2xl text-center p-2 rounded-lg">React - Notes</p>
+                    <p class="text-2xl text-center p-2 rounded-lg">Azure - Notes</p>
                     <a href="#one" class="text-md p-4 hover:bg-gray-200 rounded-lg">
                         <div class="flex gap-4">
                             <ion-icon name="information-circle-outline" class="text-lg"></ion-icon>
@@ -32,6 +32,12 @@
                         <div class="flex gap-4">
                             <ion-icon name="information-circle-outline" class="text-lg"></ion-icon>
                             <div>Azure - Resource groups</div>
+                        </div>
+                    </a>
+                    <a href="#two" class="text-md p-4 hover:bg-gray-200 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="information-circle-outline" class="text-lg"></ion-icon>
+                            <div>Azure - Compute</div>
                         </div>
                     </a>
                 </div>
@@ -241,11 +247,45 @@
                                 Doing the same with a PowerShell: <b>New-AzResourceGroup -Name PSTest-rg Location
                                     westus</b>
                             </p>
+                            <p>
+                                Heirarchy of ownership:</b>
+                            </p>
+                            <ul>
+                                <li>1. Management groups</li>
+                                <li>2. Subscriptions</li>
+                                <li>3. Resource groups</li>
+                                <li>4. Resources.</li>
+                            </ul>
+                            <p>
+                                Storage accounts: Costs are extemely cheap.
+                            </p>
+                            <p>
+                                SLA: Costs are extemely cheap. Different SLA's offer 99.9, 99.99, 99.99% uptimes. Free
+                                and shared resources don't have SLA's.
+                            </p>
+                            <p>
+                                Pricing models:</b>
+                            </p>
+                            <ul>
+                                <li>1. Per resource</li>
+                                <li>2. Per consumption</li>
+                                <li>3. Reservations</li>
+                                <li>4. Resources.</li>
+                            </ul>
                         </div>
                     </div>
                     <br />
                 </div>
 
+                <div class="p-4">
+                    <h3 id="three" class="font-bold text-xl p-2 sticky top-0 bg-gray-100 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="information-circle-outline" class="text-lg"></ion-icon>
+                            <div>Azure - Compute</div>
+                        </div>
+                    </h3>
+                    <hr />
+                </div>
 
                 <div class="p-8">
                     <div class="flex gap-8">
