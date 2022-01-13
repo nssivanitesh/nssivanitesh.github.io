@@ -382,13 +382,145 @@
                                     a different building containing autonomous data center. Provides protection against
                                     a complete zone shutdown. Deploy load balancer, to route betweem the VM's.</li>
                             </ol>
+                            <br />
+                            <p><b>Virtual machine Scale Set (Free):</b></p>
+                            <ol>
+                                <li>A group of separate VMs sharing the same image</li>
+                                <li>Managed as a group</li>
+                                <li>Can be scaled out or in manually or according to conditions specified</li>
+                                <li>Great for handling unpredictable loads</li>
+                                <li>Note: To make changes to the Scale set the original image has to be modified.
+                                    Changes could be lost when it's made to indiviual machines, when they are scaled in.
+                                </li>
+                                <li>For web apps, load balancer must be infront of the scale set.</li>
+                            </ol>
+                            <br />
+                            <b>To enable scale in / scale out feature, one must register under Subscriptions -> Resource
+                                providers -> Search for "microsoft.insights", select and click register.</b>
+                            <br /><br />
+                            <b>Command prompt: az provider show --namespace microsoft.insights -o table </b>
+
+                            <br /><br />
+                            <p><b>Steps to create a virtual machine scale set:</b></p>
+                            <ul>
+                                <li>1. Choose a subscription, resource group, give a virtual machine name, region,
+                                    availability zone or set, image, size, default user....</li>
+                                <li>2. Scaling: Scaling can be done manually or by using custom autoscale rules. Select
+                                    the
+                                    created Scale set, and on the menu bar, choose "Scaling"</li>
+                                <li>3. To add a custom rule, choose "Add a rule" from Rules form field.</li>
+                                <li>4. Scale out / scale in can be done based on several metrics.</li>
+                                <li>5. Scale in algorithms: Default (1. Instance Id that's greatest, 2. newest instance,
+                                    3. oldest vm...), </li>
+                            </ul>
+                            <br />
+                            <p><b>Azure instance metadata services:</b></p>
+                            <ol>
+                                <li>1. This is a REST API service</li>
+                                <li>2. Provides information about, SKU, storage, networking and scheduled events...</li>
+                                <li>3. Accessible only from the VM</li>
+                                <li>4. With scaleset, get notifications about upcoming evication, can be polled every
+                                    minute.</li>
+                            </ol>
+                            <p><b>How to use Azure instance metadata services?</b></p>
+                            <ul>
+                                <li>1. Create a Virtual machine and select the VM and download the RDP file and
+                                    connect...</li>
+                                <li>2. Make a POST API request using postman, to the specific url, and Azure will
+                                    respond with metadata about the current Virtual machine</li>
+                            </ul>
                             <p class="p-4 m-4 rounded-lg bg-gray-200">Azure - App services</p>
                             <ul>
-                                <li></li>
+                                <li>1. A fully managed web hosting for websites</li>
+                                <li>2. PUblish your code and it just runs</li>
+                                <li>3. No access to the underlying servers</li>
+                                <li>4. Secured and compliant, managed by Azure</li>
+                                <li>5. Integrates with many source control and dev ops services like, Github, BitBucket,
+                                    Azure DevOps, DockerHub and more...</li>
+                                <li>6. Supported platforms, .NET, .NET Core, Node JS, Java, Python, PHP...</li>
+                                <li>7. Also supports containers...</li>
+                                <li>8. Supported application types: Web Apps, Web API's and web Jobs (batch
+                                    processes)...</li>
+                                <li>9. App service can be autoscaled to support spikes on loads</li>
+                                <li>10. Extremely flexible, similar to VM Scale set...</li>
+                                <li><b>The main difference between App Service and the Virtual machine is that, when VM
+                                        is stopped, the pricing also stops. But for App Services, whent he service is
+                                        stopped, doesn't mean the billing stops!!!</b></li>
                             </ul>
-                            <p class="p-4 m-4 rounded-lg bg-gray-200">Azure - AKS</p>
+                            <br />
+                            <p><b>Azure App Service - Create new:</b></p>
+                            <ol>
+                                <li>1. Search for, "App services", Click "Create new"</li>
+                                <li>2. Select subscription, resource group, give a name (unique across Azure), choose
+                                    (publish code / docker container), Runtime stack (PHP, .NET Core..), OS, Region,
+                                    Windows Plan, SKU and Size</li>
+                                <li>3. Click Review & Create</li>
+                            </ol>
+                            <p><u>There's possiblitity to edit files deployed to App service via, a Console and an App
+                                    Serice Editor window...</u></p>
+
+                            <br />
+                            <p><b>Scale up:</b> Add more RAM, Processor and choose bigger and faster disks...</p>
+                            <p><b>Scale out:</b> Add more parallel machines...</p>
+                            <br />
+                            <p class="p-4 m-4 rounded-lg bg-gray-200">Azure - AKS - Azure Kubernetes Services</p>
                             <ul>
-                                <li></li>
+                                <li>1. Managed Kubernetes on Azure</li>
+                                <li>2. Allows deploying containers and managing them using Kubernetes on Azure</li>
+                                <li>3. Paying only on the instances (VMs) used</li>
+                            </ul>
+                            <br />
+                            <p><b>Containers:</b></p>
+                            <ol>
+                                <li>Thin packaging model/li>
+                                <li>Packages software, it's dependencies, and configuration files</li>
+                                <li>Can be copied between machines</li>
+                                <li>Uses the underlying OS</li>
+                            </ol>
+                            <br />
+                            <p><b>Containers Vs Virtual Machines:</b></p>
+                            <ul>
+                                <li>Containers are light weight as it's just a layer on top of the HOST OS and Virtual
+                                    machines are heavy as it is a full OS</li>
+                                <li>Containers can be started and stopped in seconds to minutes, whereas starting
+                                    Virtual machines takes a minimum couple of minutes for the boot to complete and the
+                                    application to start.</li>
+                                <li>Containers can be restarted without restarting the hardware, but for Virtual
+                                    machines some updates need harware restarts.</li>
+                            </ul>
+                            <img
+                                src="https://www.netapp.com/media/Screen-Shot-2018-03-20-at-9.24.09-AM_tcm19-56643.png?v=85344">
+
+                            <br />
+                            <p><b>Problems with Containers:</b></p>
+                            <ul>
+                                <li>1. Deployment: There could be multiple containers that might need deployment. And,
+                                    this can't be done manually.</li>
+                                <li>2. Scalability: Scalability must be done Automatically as well</li>
+                                <li>3. Monitoring: How to monitor too many containers?</li>
+                                <li>4. Routing: How do you route traffic across the containers?</li>
+                                <li>5. Availability: How to make the containers run with high availability?</li>
+                            </ul>
+                            <br />
+                            <p><b>Deploying a container image to Azure:</b></p>
+                            <ul>
+                                <li>1. Once the docker container is ready, we need to create a new Container registry
+                                </li>
+                                <li>2. Choose a subscription, Give it a name, Choose a Tier (Basic, Standard, Premium),
+                                    choose a resource group and location
+                                </li>
+                            </ul>
+                            <b>To enable container deployment, one must register under Subscriptions -> Resource
+                                providers -> Search for "microsoft.ContainerRegistry", select and click register.</b>
+                            <br />
+                            <p><b>Kubernetes:</b></p>
+                            De facto standard for container management. Provides
+                            <ul>
+                                <li>1. Routing</li>
+                                <li>2. Scalability</li>
+                                <li>3. high availability</li>
+                                <li>4. Automated deployment</li>
+                                <li>5. configuration management and so on...</li>
                             </ul>
                             <p class="p-4 m-4 rounded-lg bg-gray-200">Azure - Azure functions</p>
                             <ul>
