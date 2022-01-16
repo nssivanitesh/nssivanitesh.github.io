@@ -432,7 +432,7 @@
                             <p class="p-4 m-4 rounded-lg bg-gray-200">Azure - App services</p>
                             <ul>
                                 <li>1. A fully managed web hosting for websites</li>
-                                <li>2. PUblish your code and it just runs</li>
+                                <li>2. Publish your code and it just runs</li>
                                 <li>3. No access to the underlying servers</li>
                                 <li>4. Secured and compliant, managed by Azure</li>
                                 <li>5. Integrates with many source control and dev ops services like, Github, BitBucket,
@@ -522,7 +522,112 @@
                                 <li>4. Automated deployment</li>
                                 <li>5. configuration management and so on...</li>
                             </ul>
+                            <br />
+                            <p><b>Command: az aks create -resource-group name-app-rg --name cart-aks --node-count 1
+                                    --generate-ssh-keys --attach-acr nameacr --node-vm-size Standard_DS1_v2</b></p>
+
                             <p class="p-4 m-4 rounded-lg bg-gray-200">Azure - Azure functions</p>
+                            <ul>
+                                <li>1. Small, foucused functions running as a result of an event.</li>
+                                <li>2. Great for event driven systems</li>
+                                <li>3. Automatically managed by Azure; It starts, stops and autoscales...</li>
+                                <li>4. Flexible pricing plans</li>
+                                <li>5. Serverless - A cloud resource that is completely managed by the cloud. The user
+                                    need not think about VM's, CPU's, Memory etc... </li>
+                            </ul>
+                            <br />
+                            <p><b>Triggers and Bindings:</b></p>
+                            <ul>
+                                <li>Triggers: This makes a Function run. There are quite a few. Deeply integrated into
+                                    Azure services.</li>
+                                <li>Triggers are not mandatory.</li>
+                                <li>Bindings: Are declarative connection to other resources. It can be input, output or
+                                    both. These are not mandatory as well. Functions use bindings to read and write.
+                                </li>
+                            </ul>
+                            <pre class="rounded rounded-lg bg-gray-300 p-4">
+    namespace AzureExample.Function> {
+        public static class EvenGridFunction {
+            [FunctionName("EventGridFunction")]
+            public static async Task Run(
+                [HttpTrigger(AuthorizationLevel.Anonymous, "get, "post", Route = null)] HttpRequest req,
+                [EventGrid(TopicEndpointUri = "MyEventGridtopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
+                IAsyncCollector<EventGridEvent> outputEvents, ILogger log) {
+                    string name = req.Query(["name"]);
+
+                    var myEvent = new EventGridEvent("message-id-3", "user-added", $"{{name: {name}}}", "event-type", DateTime.Utcnow, "1.0");
+                    await outputEvents.AddAsync(myEvent);
+                }
+        }
+    }
+                            </pre>
+                            <br />
+                            <p><b>Supported Trigger types:</b></p>
+                            <ul>
+                                <li>Blob storage</li>
+                                <li>Cosmos DB</li>
+                                <li>Dapr</li>
+                                <li>Event Grid</li>
+                                <li>Event Hubs</li>
+                                <li>HTTP Requests</li>
+                                <li>IOT Hub</li>
+                                <li>Kafka</li>
+                                <li>Queue Storage</li>
+                                <li>RabbitMQ</li>
+                                <li>Service Bus</li>
+                                <li>Timer</li>
+                            </ul>
+                            <br />
+                            <p><b>Supported Binding types:</b></p>
+                            <ul>
+                                <li>Blob storage</li>
+                                <li>Cosmos DB</li>
+                                <li>Dapr</li>
+                                <li>Event Grid</li>
+                                <li>Event Hubs</li>
+                                <li>HTTP Requests</li>
+                                <li>IOT Hub</li>
+                                <li>Kafka</li>
+                                <li>Mobile apps</li>
+                                <li>Notification Hub</li>
+                                <li>Queue Storage</li>
+                                <li>RabbitMQ</li>
+                                <li>SendGrid</li>
+                                <li>Service Bus</li>
+                                <li>SignalR</li>
+                                <li>Table storage</li>
+                            </ul>
+                            <br />
+                            <p><b>Azure functions: Cold start</b></p>
+                            <p>Since Azure Functions is a serverless application, incase if the server is shutdown by
+                                Azure on low demand scenarios, it might take few seconds for Azure to bring the
+                                application back up.</p>
+                            <p>This problem can be avoid using the right hosting plan. The plans are:</p>
+                            <ul>
+                                <li><b>Consumption:</b> Pay for function running time, and network data consumed. Be
+                                    aware of
+                                    ColdStarts and Function
+                                    cannot consume more than 1.5 GB RAM. </li>
+                                <li><b>Premium plan</b>: Pay for pre-warmed instances. Pay for CPU duration and memory
+                                    usage.
+                                    You can choose the machine configuration options. Advantages: No cold starts, no
+                                    memory limits, better application performance and VNet configurations available, the
+                                    prices are predictable. Downsides: EXPENSIVE.
+                                </li>
+                                <li><b>Dedicated plan</b>: Functions run on existing app service. Great if the app
+                                    server is
+                                    underutilized. Make sure "Always On" option is activated. There's no auto-scale
+                                    support for Dedicated plan functions. </li>
+                            </ul>
+                            <br />
+                            <p><b>Durable functions:</b></p>
+                            <ul>
+                                <li>Stateful functions that react with external resources and keep track of flow</li>
+                                <li>Offer simple syntax, hide complexities of managing states and allows retries...</li>
+                                <li>Used usually with, function chaining...</li>
+                            </ul>
+                            <br />
+                            <p><b>How to choose the right Compute type?</b></p>
                             <ul>
                                 <li></li>
                             </ul>
