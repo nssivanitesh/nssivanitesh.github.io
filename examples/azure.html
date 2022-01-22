@@ -459,7 +459,7 @@
                                 <li>1. Search for, "App services", Click "Create new"</li>
                                 <li>2. Select subscription, resource group, give a name (unique across Azure), choose
                                     (publish code / docker container), Runtime stack (PHP, .NET Core..), OS, Region,
-                                    Windows Plan, SKU and Size</li>
+                                    Windows Plan, SKU (Stock keeping unit) and Size</li>
                                 <li>3. Click Review & Create</li>
                             </ol>
                             <p><u>There's possiblitity to edit files deployed to App service via, a Console and an App
@@ -771,11 +771,94 @@
                     <p class="p-4 m-4 rounded-lg bg-gray-200">Load balancer</p>
                     <div class="flex">
                         <div>
+                            <div>
+                                <ul>
+                                    <li>Azure service that distributes load and checks health of VMs</li>
+                                    <li>When a VM is not healthy, no traffic is directed to it</li>
+                                    <li>Can work with VMs or Scale set</li>
+                                    <li>Can be public or private</li>
+                                    <li>Operates at layer 4 of the OSI layer (Transport layer)</li>
+                                </ul>
+                                <br />
+                                <p><b>Load balancer distribution algorithm</b></p>
+                                <ul>
+                                    <li>Based on, source IP, source port, destination IP, destination port, and Protocol
+                                        type </li>
+                                </ul>
+                                <br />
+                                <p><b>Types of Load balancer</b></p>
+                                <ul>
+                                    <li><b>Basic:</b>No redundancy, Open by default, Upto 300 instances, NO SLA, Free
+                                    </li>
+                                    <li><b>Standard:</b>Has redundancy, Secure by default, Upto 1000 instances, 99.99
+                                        SLA, Not free</li>
+                                </ul>
+                                <br />
+                                <p><b>Load balancer configurations:</b></p>
+                                <ul>
+                                    <li><b>Frontend IP configuration:</b> Public IP exposed by the load balancer</li>
+                                    <li><b>Backend pools:</b> List of VM's to route the traffic to</li>
+                                    <li><b>Health probes:</b> Probes to detect unhealthy VMs and avoid sending traffic
+                                        to them.</li>
+                                    <li><b>Load balancing rules:</b> Rule connecting the front end pool to the backend
+                                        pool
+                                    </li>
+                                </ul>
+                                <br />
+                                <p><b>Load balancer health probes:</b></p>
+                                <ul>
+                                    <li>Check the health of the VMs</li>
+                                    <li>A non healthy VM will be marked "Down" and will not be routed to</li>
+                                    <li>Runs in intervals (of few seconds)</li>
+                                    <li>Can run on TCP, HTPP, HTTPS</li>
+                                    <li>Configurable unhealthy threshold - how many times a check should fail for the VM
+                                        to be marked "Down" default is 2.</li>
+                                    <li>Runs on the VM's host</li>
+                                    <li>No network traffic outside the host. Originates from the same IP. Allowed by
+                                        default in NSG.</li>
+                                </ul>
+                                <br />
+                                <p><b>When to use a Load balancer:</b></p>
+                                <ul>
+                                    <li>Great for internal resources</li>
+                                </ul>
+                                <br />
+                                <p><b>When to NOT use a Load balancer:</b></p>
+                                <ul>
+                                    <li>For external resources</li>
+                                    <li>Load balancer cant handle HTTP</li>
+                                    <li>Doesnt route based on path</li>
+                                    <li>No default protection, instead use the application gateway</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <p class="p-4 m-4 rounded-lg bg-gray-200">Application gateway</p>
                     <div class="flex">
                         <div>
+                            <div>
+                                <ul>
+                                    <li>Web traffic load balancer, ,operates on layer 7 of the OSI model</li>
+                                    <li>Can function as the external endpoint of the web app</li>
+                                    <li>Works with: VMs, Scale sets, App services, Kubernetes...</li>
+                                    <li>Similar to a load balancer, but has SSL termination, autoscaling, Zone
+                                        redundancy, session affinity, URL based routing, WebScoket and HTTP/2 support,
+                                        Custom error pages, Header & URL Rewrite, WAF (Web Application Firewall),...
+                                    </li>
+                                </ul>
+                            </div>
+                            <br />
+                            <p><b>How to configure a Application gateway</b></p>
+                            <ul>
+                                <li><b>Backend pools:</b>Can be VMs, App services, or scale sets...</li>
+                                <li><b>HTTP Settings:</b>Settings for the incoming HTTP requests</li>
+                                <li><b>Frontend IP Configuraitons:</b>Public IP exposed by the Application gateway</li>
+                                <li><b>Listeners:</b>Receives requests on a specific port and protocol</li>
+                                <li><b>Rules:</b>A rule connecting the listener to the backend pool</li>
+                            </ul>
+                            <p>Application Gateway and AKS: Application gateway doesn't support AKS as of now.</p>
+                            <p>Application gateway and Functions: Function apps are basically app services. App Gateway
+                                can protect function apps.</p>
                         </div>
                     </div>
                 </div>
