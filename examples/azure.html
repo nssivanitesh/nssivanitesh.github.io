@@ -478,7 +478,7 @@
                             <br />
                             <p><b>Containers:</b></p>
                             <ol>
-                                <li>Thin packaging model/li>
+                                <li>Thin packaging model</li>
                                 <li>Packages software, it's dependencies, and configuration files</li>
                                 <li>Can be copied between machines</li>
                                 <li>Uses the underlying OS</li>
@@ -648,16 +648,124 @@
                     <p class="p-4 m-4 rounded-lg bg-gray-200">Networking</p>
                     <div class="flex">
                         <div>
+
                         </div>
                     </div>
                     <p class="p-4 m-4 rounded-lg bg-gray-200">V Nets</p>
                     <div class="flex">
                         <div>
+                            <ul>
+                                <li>A network where one can deploy cloud resources</li>
+                                <li>Many resources (VM, App Services, DBs etc...) can be deployed within Vnets </li>
+                                <li>"Virtual" here means we don't create a physical network, but use existing Azure
+                                    networks to create a logical network only for our application</li>
+                                <li>Resources in the same VNet can communicate with each other by default, but cannot
+                                    communicate to resources in another VNet</li>
+                                <li>VNets are free, upto 50 VNets.</li>
+                                <li>VNets are scoped to single subscription and a single region</li>
+                                <li>Can be connected via Peering</li>
+                                <li>Segmented via Subnets</li>
+                                <li>Protected via NSG (Network Security Group) - Defines who can connect in and out of a
+                                    subnet, like a mini firewall. NSG is free.</li>
+                                <li>NSG looks at 5 things called a <b>Security Rule </b>: Source, Source port,
+                                    Destination, Destination port, Protocol
+                                </li>
+                                <li>Each VNet has IP range, upto 65,536, can be customized, and all devices must be
+                                    within this address range</li>
+                                <li>Must be expressed in CIDR (Classless Inter-domain Routing) notation</li>
+                            </ul>
                         </div>
                     </div>
                     <p class="p-4 m-4 rounded-lg bg-gray-200">Subnets</p>
                     <div class="flex">
                         <div>
+                            <div>
+                                <li>A logical segment in the VNet</li>
+                                <li>Shares a subset of the VNet's IP Range</li>
+                                <li>Subnet is a logical group within a VNet</li>
+                                <li>Subnet is a MUST. All resoursces must be placed within a Subnet</li>
+                                <li>Resources within a subnet can interact with other resources on another subnet,
+                                    provided
+                                    they are under the same VNet</li>
+                                <li>DO's & DONT's</li>
+                                <li>NEVER use the full range of the VNet in a subnet</li>
+                                <li>Extremely hard to modify the range later</li>
+                                <li>Subnets are free and are limited upto 3000 subnets per VNet</li>
+                            </div>
+                            <br />
+                            <b>Network Peering</b>
+                            <div>
+                                <p>Sometimes, to increase security, we want to place resources in a completely different
+                                    VNet, not just the subnet. That's when we use Network Peering.</p>
+                                <p>Network perring allows two VNets to connect to each other. From a users point of
+                                    view, it
+                                    will be single VNet. Just makes sure the addresses assigned are not overlapped.</p>
+                                <p>Peering can work across a region.</p>
+                                <p>Peering is not free. It's like 1 cent per 100 GB</p>
+                            </div>
+                            <br />
+                            <b>Securing the VM Access</b>
+                            <div>
+                                <p>The larger the attack surface - greater the risk</p>
+                                <p>How to reduce the exposed Public IP Addresses:</p>
+                                <ul>
+                                    <li><b>JIT Access</b>: Just in time access. Open the port on demand and close it
+                                        when
+                                        not
+                                        needed. Can be configured from the VM's page. Requires Security Center
+                                        License
+                                        Upgrade.</li>
+                                    <li><b>VPN</b>: A secure tunnel to the VNet. Can be configured so that no one else
+                                        can
+                                        connect to the VNet. Requires VPN software and license.</li>
+                                    <li><b>Jump box</b>: Place another VM in the VNet. Allow only access to this machine
+                                        via
+                                        public IP.Then from this machine, connect to the other VM's. Only one of the
+                                        port is open as well. Cost is only the addition of the new VM.</li>
+
+                                    <li><b>Bastion</b>: Web based connection to the VM. No open port is required. Simple
+                                        and
+                                        secure. Costs $140 per month.</li>
+                                </ul>
+                            </div>
+                            <br />
+                            <b>Service endpoint:</b>
+                            <div>
+                                <ul>
+                                    <li>Service endpoint solves the problem of exposed public IP adresses from Azure
+                                        services like databases...</li>
+                                    <li>Creates a route from the VNet to the managed service</li>
+                                    <li>Supports limited services</li>
+                                    <li>This is FREE</li>
+                                </ul>
+                            </div>
+                            <br />
+                            <b>Private link:</b>
+                            <div>
+                                <ul>
+                                    <li>Configure the resource to connect to a VNet</li>
+                                    <li>Configure Private DNS</li>
+                                    <li>Might cause a problem if you have your own DNS</li>
+                                    <li>This is not FREE</li>
+                                    <li>Supports larger set of services</li>
+                                </ul>
+                            </div>
+                            <br />
+                            <b>Service endpoint / Private link VS VNet Integration:</b>
+                            <div>
+                                <p>Service Endpoint and Private link allows access to a managed service (App
+                                    services...)
+                                    from a VM</p>
+                                <p>VNet Integration on the other hand, allows access to a Database / VM from a managed
+                                    service (App services...)</p>
+                            </div>
+                            <br />
+                            <b>App Service Access Restrictions:</b>
+                            <div>
+                                <p>Similar to NSG but for App services</p>
+                                <p>Restricts traffic to App services. Main use case is, backend app service that should
+                                    only be accessed from the front end app service / VM</p>
+                            </div>
                         </div>
                     </div>
                     <p class="p-4 m-4 rounded-lg bg-gray-200">Load balancer</p>
@@ -676,7 +784,8 @@
                     <div class="flex gap-8">
                         <div class="w-full font-italic p-8 rounded-lg text-center">
                             That's all folks!
-                            <h6 class="p-2">This site is powered by <a href="https://tailwindcss.com/">Tailwind CSS</a>
+                            <h6 class="p-2">This site is powered by <a href="https://tailwindcss.com/">Tailwind
+                                    CSS</a>
                             </h6>
                             <h6 class="p-2">This site's icons are from <a href="https://ionic.io/ionicons">Ionic
                                     Icons</a></h6>
