@@ -52,6 +52,12 @@
                             <div>Azure - Data</div>
                         </div>
                     </a>
+                    <a href="#six" class="text-md p-4 hover:bg-gray-200 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="information-circle-outline" class="text-lg"></ion-icon>
+                            <div>Azure - Messaging</div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="w-full w-2/3 lg:w-3/4 p-4 h-full overflow-y-scroll">
@@ -1203,6 +1209,78 @@
                                     <li>Then click Review + Create and Create. Creating a REDIS cache could take a
                                         while...</li>
                                 </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-4">
+                    <h3 id="six" class="font-bold text-xl p-2 sticky top-0 bg-gray-100 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="information-circle-outline" class="text-lg"></ion-icon>
+                            <div>Azure - Messaging</div>
+                        </div>
+                    </h3>
+                    <hr />
+                    <div>
+                        <br />
+                        <p class="p-4 m-4 rounded-lg bg-gray-200">Messaging services</p>
+                        <div class="flex">
+                            <div>
+                                <div>
+                                    <ul>
+                                        <li>Messaging is extremely important aspect of Software Architecture</li>
+                                        <li>Must be able to handle load, throughput and have minimum latency</li>
+                                        <li>A core part of every microservice architecture</li>
+                                        <li>4 managed messaging services from Azure are:</li>
+                                        <br />
+                                        <li><b>Storage queue</b> Part of Azure Storage account. Simplest queue
+                                            implementation. Create queue->send message->receive messaage. No special
+                                            pricing, it's included in storage account. Same for availability.
+                                            Performance (For 1KB msg, max is 64KB): 20k msgs/sec/account. Or, 2k
+                                            msgs/sec/queue</li>
+                                        <li>Creating a Storage queue: Create a new storage account. Choose subscription,
+                                            resource group. Under instance details, provide: storage account name,
+                                            choose location, performance tpye, account kind and replication.</li>
+                                        <li>Review + Create and Create. Go to the newly created resource and select
+                                            "Queues"</li>
+                                        <li>Click "+ Queue", give it a name, and click "+ Add message"</li>
+                                        <br />
+                                        <li><b>Service Bus</b></li>
+                                        <br />
+                                        <li><b>Event grids</b></li>
+                                        <img
+                                            src="https://docs.microsoft.com/sv-se/azure/event-grid/media/overview/functional-model-big.png#lightbox">
+                                        <li>Allows building event based architectures, Publishes events to interested
+                                            parties, No queue / order, Strong integration with many azure services, cost
+                                            effective, simple pricing and no tiers. HA (high availability) built in.
+                                        </li>
+                                        <li>Various terms are:</li>
+                                        <li><b>Event : </b> What happened? A storage blob was added.</li>
+                                        <li><b>Publisher : </b>Who created? Microsoft? Or within org?</li>
+                                        <li><b>Event source : </b>What happened? Storage account, IOT hub added, removed
+                                        </li>
+                                        <li><b>Topic : </b> Where the event is sent? Used to group related events.</li>
+                                        <li><b>Subscription : </b>Which events interest me?</li>
+                                        <li><b>Event handler : </b>Where the event is sent to?</li>
+                                        <br />
+                                        <li><b>Event hub</b></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div>
+                        <p class="p-4 m-4 rounded-lg bg-gray-200">Azure PostgreSQL</p>
+                        <div class="flex">
+                            <div>
+                                <div>
+                                    <ul>
+                                        <li>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
