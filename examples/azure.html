@@ -46,6 +46,12 @@
                             <div>Azure - Networking</div>
                         </div>
                     </a>
+                    <a href="#five" class="text-md p-4 hover:bg-gray-200 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="information-circle-outline" class="text-lg"></ion-icon>
+                            <div>Azure - Data</div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="w-full w-2/3 lg:w-3/4 p-4 h-full overflow-y-scroll">
@@ -863,6 +869,122 @@
                     </div>
                 </div>
 
+
+                <div class="p-4">
+                    <h3 id="five" class="font-bold text-xl p-2 sticky top-0 bg-gray-100 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="information-circle-outline" class="text-lg"></ion-icon>
+                            <div>Data in Azure</div>
+                        </div>
+                    </h3>
+                    <hr />
+                    <p class="p-4 m-4 rounded-lg bg-gray-200">Data in Azure</p>
+                    <div class="flex">
+                        <div>
+                            <p>Azure provides many data solutions as cloud services that are fully managed, and can be
+                                part of Azure app or fully independant. Some of them are:</p>
+                            <ul>
+                                <li>Relational databases</li>
+                                <li>NoSQL databases</li>
+                                <li>Object stores</li>
+                            </ul>
+                            <br />
+                            <p>Major database features:</p>
+                            <ul>
+                                <li>Security: data should be encrypted on rest</li>
+                                <li>Backup: If something fails, we should have backup</li>
+                                <li>Availability: The service should have high availability</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="p-4 m-4 rounded-lg bg-gray-200">Azure SQL</p>
+                    <div class="flex">
+                        <div>
+                            <div>
+                                <ul>
+                                    <li>Managed SQL Server on Azure</li>
+                                    <li>Works like any other SQL Server using the same tools</li>
+                                    <li>Great compatibility with on prem SQL Server</li>
+                                    <li>Offers built in security, backups and availability</li>
+                                    <li>Flexible pricing models</li>
+                                </ul>
+                                <br />
+                                <p>Various flavours of Azure SQL are:</p>
+                                <ul>
+                                    <li><b>Azure SQL Database:</b>Managed SQL server from Azure, Single database on a
+                                        single server, automatic backups, updates and scaling, good compatibility with
+                                        onprem SQL server. Has IP firewall rules, SQL and Azure AD Authentication, TLS
+                                        secure communication. Has full weekly backup, has differential backup every
+                                        12-24 hours and transactional log every 5-10 mins... Backup is stored for 7-35
+                                        days, can be extended upto 10 eyars. can provide Active geo-replication. Two
+                                        tiers: Provisioned and Serverless.</li>
+                                    <li><b>Elastic pool:</b> Based on Azure SQL. Allows to store multiple databases on a
+                                        single server. Great for databases with low average utilization and infrequent
+                                        spikes. Cost effective, purchase the compute resources you need.</li>
+                                    <li><b>Managed instance:</b>Closer to on prem SQL server. Can be deployed to VNet.
+                                        The primary differences to other flavours are: No active geo-replication, SLA is
+                                        99.99, supports built in functions, runs CLR code. No autoscaling, tuning, and
+                                        no availability zones. No serverless tier, no hyperscale.
+                                    </li>
+                                </ul>
+                            </div>
+                            <br />
+                            <div>
+                                <p><b>How to create a new SQL Server</b></p>
+                                <ul>
+                                    <li>1. Search SQL databases, select and click Add</li>
+                                    <li>2. Select subscription, resource group</li>
+                                    <li>3. Enter database name (unique across Azure universe)</li>
+                                    <li>4. Create a server, or select an existing one</li>
+                                    <li>5. Set SQL Elastic pool to No</li>
+                                    <li>6. If on creating a new server, enter server name, admin credentials, and choose
+                                        a location. and click OK</li>
+                                    <li>7. Click review + create</li>
+                                    <li>8. On configure database, choose the SQL server's configuration</li>
+                                    <li>9. Set networking options if needed</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="p-4 m-4 rounded-lg bg-gray-200">Cosmos DB</p>
+                    <div class="flex">
+                        <div>
+                            <div>
+                                <ul>
+                                    <li>Fully managed NoSQL database</li>
+                                    <li>Amazing performance, <10ms for 99% of operations</li>
+                                    <li>Globally distributed</li>
+                                    <li>Fully automatic management system, including updates, scaling and fixes etc...
+                                    </li>
+                                    <li>Multiple APIs: SQL, Mongo, Gremlin, Azure Table, Cassandra...</li>
+                                    <li>Heirarchical database. Accounts contain databases, which contains many
+                                        containers, which contains JSON documents.</li>
+                                    <li>Can be distributed across many regions</li>
+                                    <li>API automatically picks the closest one</li>
+                                    <li>Managed automatically, no code changes required</li>
+                                    <li>Full backup is every 1-24 hours. Default is 4. Retention period is 20-30 days.
+                                        Default is 30.</li>
+                                </ul>
+                            </div>
+                            <br />
+                            <div>
+                                <p><b>How to create a new COSMOS DB</b></p>
+                                <ul>
+                                    <li>1. Search Cosmos DB, select Azure Cosmos DB and click create</li>
+                                    <li>2. Select subscription, resource group</li>
+                                    <li>3. Enter account name (unique across Azure universe)</li>
+                                    <li>4. Choose Cose (SQL) API</li>
+                                    <li>5. SEt Notebooks to off, Location to your desired location, capacity mode to
+                                        Provisioned throughput, Apply free tier discount set to apply, leave the rest to
+                                        defaults.</li>
+                                    <li>6. Choose Network settings as needed</li>
+                                    <li>7. Select backup settings and click Review + Create and then create.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="p-8">
                     <div class="flex gap-8">
                         <div class="w-full font-italic p-8 rounded-lg text-center">
