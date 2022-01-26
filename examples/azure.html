@@ -983,7 +983,229 @@
                             </div>
                         </div>
                     </div>
+                    <p class="p-4 m-4 rounded-lg bg-gray-200">Azure MySQL</p>
+                    <div class="flex">
+                        <div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        Managed MySQL on Azure, works like any other MySQL database, great compatibility
+                                        with on-prem MySQL database, offers built in security, availability and more
+                                    </li>
+                                    <li>Security: IP Firewall rules, Service end points, Private end points, Regular and
+                                        Azure AD authentication, TLS Encryption and Data encryption by default</li>
+                                    <li>Backup: Depends on service tier: </li>
+                                    <li>Basic: Daily full backup; </li>
+                                    <li>General purpose: Full backup, once a week, differential backup: twice a day,
+                                        transactional backup: every 5 mins.</li>
+                                    <li>Pricing: Based on Basic, General purpose, and Memory optimized; and based on
+                                        compute requested.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="p-4 m-4 rounded-lg bg-gray-200">Azure PostgreSQL</p>
+                    <div class="flex">
+                        <div>
+                            <div>
+                                <ul>
+                                    <li>Managed PostgreSQL on Azure, works like any other PostgreSQL database using the
+                                        same tools, great compatibility with on prem PostgreSQL database, includes
+                                        hyperscale deployment, offers built in security, backup and availability</li>
+                                    <li>Security: IP Firewall rules, Service end points, Private end points, Regular and
+                                        Azure AD authentication, TLS Encryption and Data encryption by default</li>
+                                    <li>Backup: Depends on service tier: </li>
 
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="p-4 m-4 rounded-lg bg-gray-200">Azure Storage</p>
+                    <div class="flex">
+                        <div>
+                            <div>
+                                <ul>
+                                    <li>Used for storing objects, massively scalable, Accesible via HTTP or HTTPS,
+                                        available client libraries for different languages, highly durable and available
+                                    </li>
+                                    <br />
+                                    <li><b>5 types of storages are:</b></li>
+                                    <li> <b>Blobs: </b> Object store (BLOB: Binary large object: Video, images, docs,
+                                        and large texts). Max object size: 4.77TB per file now (190TB in future).
+                                        Extremely cost effective. Massively scalable, great availability and extremely
+                                        easy to use. Used together with SQL or NoSQL database for file storage...</li>
+                                    <li> <b>Files: </b> File shares for cloud and on prem deployments</li>
+                                    <li> <b>Queues:</b> Queues...</li>
+                                    <li> <b>Tables:</b> NoSQL data store (Similar to Cosmos DB, less optimized though)
+                                    </li>
+                                    <li> <b>Disks: </b> Storage volumes for Azure VMs (Managed by Azure completely)</li>
+                                    <br />
+                                    <li><b>6 redundancy options:</b></li>
+                                    <li>LRS: Locally Redundant Storage: Data is synchonously copied 3 times within the
+                                        same zone.</li>
+                                    <li>ZRS: Zone Redundant Storage: Data is synchonously copied to 3 zones in the same
+                                        region.</li>
+                                    <li>GRS: Geo Redundant Storage: Data is synchonously copied 3 times within the same
+                                        zone and then asynchonously copied a paired region. Data in the secondary region
+                                        is accesible only after Failover process.</li>
+                                    <li>GZRS: Geo Zone Redundant Storage: Data is synchonously copied to 3 zones in the
+                                        region. And then asynchonously copied to paired region. Data is Accessible only
+                                        after a Failover process.</li>
+                                    <li>RA-GRS: Read Access Geo Redundant Storage: Data is synchonously copied to 3
+                                        zones in the
+                                        region. And then asynchonously copied to paired region. There's a read-access to
+                                        data in the secondary region WITHOUT a Failover process.</li>
+                                    <li>RA-GZRS: Read Access Geo Zone Redundant Storage: Data is synchonously copied to
+                                        3
+                                        zones in the
+                                        region. And then asynchonously copied to paired region. There's a read-access to
+                                        data in the secondary region WITHOUT a Failover process.</li>
+                                    <li>Failover initialization: via Portal, Azure CLI or PowerShell</li>
+                                </ul>
+                            </div>
+                            <br />
+                            <p><b>Tiers of Azure Blob Storage</b></p>
+                            <div>
+                                <ul>
+                                    <li><b>Hot:</b> Data that is accessed frequently. Has the highest storage cost and
+                                        the lowest access cost. Best SLA (99.99%).</li>
+                                    <li><b>Cold:</b> Data that is used infrequently. Has higher access cost and lower
+                                        storage cost. SLA of (99%). Data must be stored atleast for 30 days (or early
+                                        deletion fees apply). Ex: Short term backup.</li>
+                                    <li><b>Archive:</b> Data for archival. Stored offline, no SLA. Can take hours to
+                                        retrieve. Lowest storage cost and highest access costs. Data must be stored for
+                                        atleast 180 days or early storage fees apply.</li>
+                                    <li>Note: Retrieval times are same across hot and cold tiers. Archive tier doesn't
+                                        support ZRS, GRS, and RA-GRS redundancy. Using RA-G(Z)RS, SLA improves to
+                                        (99.99% Hot) and (99.9% cool).</li>
+                                </ul>
+                            </div>
+                            <br />
+                            <div>
+                                <ul>
+                                    <li><b>Pricing is based on:</b></li>
+                                    <li>Redundancy option:</li>
+                                    <li>Access tier:</li>
+                                    <li>Storage:</li>
+                                </ul>
+                            </div>
+                            <br />
+                            <div>
+                                <ul>
+                                    <li><b>Access restrictions on storage objects:</b></li>
+                                    <li>Private: No Anonymous access. 3 ways to access are: Azure AD, Access keys and
+                                        Shared Access Signatures.</li>
+                                    <li>Blob: Anonymous read access for blobs only</li>
+                                    <li>Container: Anonymous read access for containers and blobs</li>
+                                </ul>
+                            </div>
+                            <br />
+                            <div>
+                                <ul>
+                                    <li>Choose the Storage account->Access keys. The access keys provides you with full
+                                        access to do anything you want with the container. There are 2 keys. Key1 and
+                                        Key2. This is a crude way to access the containers contents.</li>
+                                    <li>The more customized way is to create a Shared Access Signature. The permissions
+                                        can be customized for:</li>
+                                    <li>Object types: Blob, file, Queue, and Table</li>
+                                    <li>Resource types: Service, Containerm or Object</li>
+                                    <li>Permissions for: Read, Writem Delete, List, Add, Create, Update and process</li>
+                                    <li>Set availability data ranges, and expiry data ranges</li>
+                                    <li>Allowed IP addresses</li>
+                                    <li>HTTP, or HTTP and HTTPS</li>
+                                    <li>When SAS token is created: this gives us: A connection string, SAS token and
+                                        Blob service SAS URL.</li>
+                                </ul>
+                            </div>
+                            <br />
+                            <div>
+                                <ul>
+                                    <li><b>Azure Content Delivery Network (CDN):</b></li>
+                                    <li>Select a storage container->Choose "Azure CDN" from sidebar. And create a
+                                        configuration profile.</li>
+                                    <li>Enter a name under "CDN profile" (New or use an existing one)</li>
+                                    <li>Choose a pricing tier</li>
+                                    <li>Choose an endpoint name</li>
+                                    <li>Azure will let us know the, Origin hostname (URL). It takes a while to create a
+                                        CDN.</li>
+                                </ul>
+                            </div>
+                            <br />
+                            <div>
+                                <ul>
+                                    <li><b>Lifecycle management:</b></li>
+                                    <li>Select a storage container->Choose "Lifecycle Management" from sideba. Then
+                                        click "Add a rule".</li>
+                                    <li>Add a rule name</li>
+                                    <li>Set rule scope (Apply rule to all blobs or limited blobs), blob type (block
+                                        blobs, append blobs), and blob subtype (base
+                                        blobs, snapshots, versions)</li>
+                                    <li>Add conditions based on (if last modified date is so and so, then move to
+                                        archive storage) something like that. This can be done with CODE VIEW as well.
+                                        Which is based on JSON format. </li>
+                                </ul>
+                            </div>
+                            <br />
+                            <div>
+                                <ul>
+                                    <li><b>How to create a new storage account:</b></li>
+                                    <li>Search for Storage account. Choose Storage Accounts</li>
+                                    <li>Click, Create. Choose Subscription, Resource group, give a name, location,
+                                        Performance (HDD type), Account kind (General purpose or...), replication
+                                        (GRS,...)</li>
+                                    <li>Review + Create and then Create</li>
+                                    <li>Select the storage account and choose container. Then in the new window: click
+                                        "+ Container". Give it a name and choose a access level (Private, blob or
+                                        container...)</li>
+                                </ul>
+                            </div>
+                            <br />
+                            <div>
+                                <ul>
+                                    <li><b>Azure Storage Explorer:</b></li>
+                                    <li>Download "Azure Storage Explorer" from azure.microsoft.com</li>
+                                    <li>Open the tool, and sign in and connect to the Azure storage.</li>
+                                </ul>
+                            </div>
+                            <br />
+                            <div>
+                                <ul>
+                                    <li><b>Azure Redis:</b></li>
+                                    <li>Managed Redis on Azure. Provides really fast in memory distributed cache. Great
+                                        for short lived frequently accessed data. Fully compatible with OSS Redis.
+                                        Enterprise REDIS depends on service tiers.</li>
+                                    <li>Security: IP Firewalls, Private and Service End points, TLS secure
+                                        communication.</li>
+                                    <br />
+                                    <li>Service tiers:</li>
+                                    <li><b>Basic: </b> Based on a single VM, no SLA, no distribution, good for DEV /
+                                        TEST</li>
+                                    <li><b>Standard: </b> Based on two VMs, replicated, SLA upto 99.9%</li>
+                                    <li><b>Premium: High performance, better throughput, lower latency, SLA upto
+                                            99.95%</b></li>
+                                    <li><b>Enterprise:</b>Based on Redis Enterprise. Offers additional features
+                                        (RedisSearch, Redisbloom and more). SLA upto 99.99%</li>
+                                    <li>Enterprise flash: Uses non volatile memory, reduces storage cost, SLA upto
+                                        99.99%</li>
+                                    <li>Pricing is based on the selected tier and the memory consumed.</li>
+                                </ul>
+                            </div>
+                            <br />
+                            <div>
+                                <ul>
+                                    <li><b>Create a new Azure Redis Cache:</b></li>
+                                    <li>Search for Redis. Select "Azure cache for Redis" and "Create"</li>
+                                    <li>Select the subscription, resource group.</li>
+                                    <li>Under instance details, provide a DNS name (mycache.redis.cache.windows.net)
+                                    </li>
+                                    <li>Choose a location and cache type.</li>
+                                    <li>Then you can configure the network as well</li>
+                                    <li>Then click Review + Create and Create. Creating a REDIS cache could take a
+                                        while...</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="p-8">
                     <div class="flex gap-8">
