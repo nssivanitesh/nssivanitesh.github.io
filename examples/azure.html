@@ -58,6 +58,12 @@
                             <div>Azure - Messaging</div>
                         </div>
                     </a>
+                    <a href="#seven" class="text-md p-4 hover:bg-gray-200 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="information-circle-outline" class="text-lg"></ion-icon>
+                            <div>Azure - AD</div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="w-full w-2/3 lg:w-3/4 p-4 h-full overflow-y-scroll">
@@ -1247,6 +1253,22 @@
                                         <li>Click "+ Queue", give it a name, and click "+ Add message"</li>
                                         <br />
                                         <li><b>Service Bus</b></li>
+                                        <li>Fully managed, full blown message queueing service, durable, supports point
+                                            to point (Queue) and pub/sub (Topic) scenarios</li>
+                                        <li>Compatible with AMQP and JMS 2.0 (premium only) API</li>
+                                        <li>The advantages with Service Bus are: Message sessions, Dead letter queue,
+                                            Scheduled delivery, Transactions, Duplicate detection and more...</li>
+                                        <li>99.99% availability and can be configured for backups</li>
+                                        <li>Provides Security via IP Firewall, Private and Service endpoints</li>
+                                        <li>Tiers: Basic, Standard, Premium</li>
+                                        <br />
+                                        <li><b>How to create a new Service Bus:</b></li>
+                                        <li>Search for Service Bus, Click "+ Create"</li>
+                                        <li>Select subscription, resource group, namespace name (unique across azure),
+                                            location and a pricing tier.</li>
+                                        <li>Review + Create and Create a Service Bus</li>
+                                        <li>Once the resource is created, click "+ Create" give a name, and click
+                                            "Create". Now a service bus is created.</li>
                                         <br />
                                         <li><b>Event grids</b></li>
                                         <img
@@ -1265,20 +1287,73 @@
                                         <li><b>Event handler : </b>Where the event is sent to?</li>
                                         <br />
                                         <li><b>Event hub</b></li>
+                                        <li>Big data streaming platform and event ingestion service</li>
+                                        <li>Note: No "messaging" in the description</li>
+                                        <li>basically a managed Apache Kafka implementation, extremely Robust and
+                                            flexible can handle millions of requests per second</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="p-4">
+                    <h3 id="seven" class="font-bold text-xl p-2 sticky top-0 bg-gray-100 rounded-lg">
+                        <div class="flex gap-4">
+                            <ion-icon name="information-circle-outline" class="text-lg"></ion-icon>
+                            <div>Azure - Active Directory (AD)</div>
+                        </div>
+                    </h3>
                     <hr />
                     <div>
-                        <p class="p-4 m-4 rounded-lg bg-gray-200">Azure PostgreSQL</p>
+                        <br />
+                        <p class="p-4 m-4 rounded-lg bg-gray-200">Azure - Active Directory (AD)</p>
                         <div class="flex">
                             <div>
                                 <div>
                                     <ul>
-                                        <li>
+                                        <li><b>AD - Active Directory</b></li>
+                                        <li>Central identity and access management cloud service </li>
+                                        <li>Used to manage access to thousands of apps, including Azure portal</li>
+                                        <li>Secure, Robust and intelligent</li>
+                                        <li>Has Multi factor authentication, Conditional access, device managementm
+                                            hybrid identiy, Identity protection, monitoring and reports and lots more...
                                         </li>
+                                    </ul>
+                                    <br />
+                                    <ul>
+                                        <li><b>Tenants</b></li>
+                                        <li>A tentant is a specific instance of Azure AD containing accounts and groups
+                                        </li>
+                                        <li>It's also called a Directory. It is NOT a part of the subscription
+                                            hierarchy.</li>
+                                        <li>A tentant can be assigned to multiple subscriptions.</li>
+                                    </ul>
+                                    <br />
+                                    <ul>
+                                        <li><b>How to add Azure AD to a subscription?</b></li>
+                                        <li>One cannot create a new Azure AD for our subscription. Azure AD lives
+                                            outside all the subscriptions, but one can "connect / add" AD to a
+                                            subscription. </li>
+                                        <li>Search for "Azure Active Directory", on selecting you should see "Default
+                                            Directory" available.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <p class="p-4 m-4 rounded-lg bg-gray-200">Active Directory (AD) - Users and Roles</p>
+                        <div class="flex">
+                            <div>
+                                <div>
+                                    <ul>
+                                        <li><b>Users & Roles</b></li>
+                                        <li>Users and roles are the two of the three main objects managed by Azure AD.
+                                            The third one being ROLES.</li>
+                                        <li>Manages and stores the users that are part of the tenant</li>
+                                        <li>Groups can made like, IT Admins, Developers and Testers</li>
+                                        <li>Allows defining roles to groups, instead of assigning to individuals</li>
                                     </ul>
                                 </div>
                             </div>
